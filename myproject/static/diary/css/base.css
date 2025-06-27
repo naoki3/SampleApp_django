@@ -1,0 +1,47 @@
+body {
+    width: 700px;
+    min-height:300px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1.5%;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 30px;
+    font-size: 3rem;
+    position: relative;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+h1 span {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: #00bfff; /* 水色のライン */
+  margin: 8px auto 0;
+}
+
+.button {
+  display: inline-block; /* <a> をボタン風に */
+  padding: 10px 20px;
+  font-size: 16px;
+  background: white;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  text-decoration: none; /* リンク下線を消す */
+  color: black; /* 文字色を黒に統一 */
+}
+
+.button:hover {
+  background: black;
+  color: white;
+}

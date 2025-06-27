@@ -3,7 +3,7 @@
 
 <ul>
 {% for page in page_list %}
-    <li>{{ page.page_date }}: 
+    <li>{{ page.page_date| date:"Y年m月d日" }}: 
         <a href="{% url 'diary:page_detail' page.id %}"> {{ page.title}}</a>
     </li>
 {% empty %}

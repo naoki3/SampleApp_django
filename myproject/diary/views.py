@@ -8,10 +8,7 @@ from zoneinfo import ZoneInfo
 
 class IndexView(LoginRequiredMixin, View):
     def get(self, request):
-        datetime_now = datetime.now(
-            ZoneInfo("Asia/Tokyo")
-            ).strftime("%Y年%m月%d日 %H:%M:%S")
-        return render(request, "diary/index.html", {"datetime_now": datetime_now})
+        return render(request, "diary/index.html")
 
 class PageCreateView(LoginRequiredMixin, View):
     def get(self, request):
@@ -28,6 +25,12 @@ class PageCreateView(LoginRequiredMixin, View):
 class PageListView(LoginRequiredMixin, View):
     def get(self, request):
         page_list = Page.objects.order_by("page_date")
+        # for page in page_list:
+        #     try:
+        #         page.page_date = datetime.strptime(page.page_date, "%Y年%m月%d日")
+        #     except (ValueError, TypeError):
+        #         # すでにdatetime型またはフォーマットが異なる場合はスキップ
+        #         pass
         return render(request, "diary/page_list.html", {"page_list": page_list})
 
 class PageDetailView(LoginRequiredMixin, View):
